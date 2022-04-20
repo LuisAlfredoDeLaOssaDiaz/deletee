@@ -1,0 +1,35 @@
+|        Sistema de Control de Acceso Vehicular          |
+
+-*- vigilante tomar una foto de la placa del vehículo
+
+-*- Registrar la hora de la captura.
+
+-*- El sistema despliega la información registrada del usuario
+
+-*- Encaso de no estar completa o no existe, el vigilante 
+debe ver una notificación de forma que pueda indicarle 
+a dueño del vehículo que suministre la 
+información.
+
+-*-  (profesor, estudiante, administrativo)
+
+-*- El vigilante solo debe interceptar al conductor en caso 
+de que la información no este actualizada
+
+-*- En caso de que la información no exista, el vigilante 
+debe ser notificado para que pueda confirmar si el conductor 
+es o no miembro de la comunidad de la UTB. De no ser así, 
+debe pedir los datos del visitante
+
+-*- Vista de reportes que indiquen cantidad de vehículos en 
+una hora en particular
+
+-*- Cuantos son de estudiantes
+-*- Cuantos de profesores,
+-*- Cuantos de administrativos
+-*- Cuantos de visitantes
+
+-*- Anotaciones por parte del vigilante. Por ejemplo, Vehículo 
+con vidrios abajo, Vehículo abierto, Vehículo con golpe,
+Vehículo mal parqueado, etc
+
