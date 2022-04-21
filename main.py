@@ -141,29 +141,71 @@ def deleteUser(id_record):
     else: 
         return "Record not found", 404
 
-@app.route('/users/<username>', methods=['PUT'])
-def updateUser(username):
+@app.route('/record/<id_record>', methods=['PUT'])
+def updateUser(id_record):
     body = json.loads(request.data)
 
-    newUsername = body["Username"]
-    newAge = body["Age"]
+    idRecord = body["id_record"]
+    # User = body["user"]
+    UserId = body["user"]["id"]
+    # UserRole = body["user"]["role"]
+    UserRoleTeacher = body["user"]["role"]["teacher"]
+    UserRoleStudent = body["user"]["role"]["student"]
+    UserRoleAdministrative = body["user"]["role"]["administrative"]
+    # Vehicle = body["vehicle"]
+    # VehiclePlate = body["vehicle"]["plate"]
+    VehiclePlateNumber = body["vehicle"]["plate"]["number"]
+    VehiclePlateCapturedate = body["vehicle"]["plate"]["captureDate"]
+    #  VehicleOwoner = body["vehicle"]["owoner"]
+    VehicleOwonerTeacher = body["vehicle"]["owoner"]["teacher"]
+    VehicleOwonerStudent = body["vehicle"]["owoner"]["student"]
+    VehicleOwonerAdministrative = body["vehicle"]["owoner"]["administrative"]
+    VehicleOwonerVisitor = body["vehicle"]["owoner"]["visitor"]
+    # Status = body["status"]
+    StatusNotupdated = body["status"]["notUpdated"]
+    StatusUpdated = body["status"]["updated"]
+    Notes = body["notes"]
 
-    updatedUser = {
-        "Username": newUsername,
-        "Age": newAge
+    updatedRecord = {
+        "id_record": idRecord,
+        "user": {
+            "id": UserId,
+            "role": {
+                "teacher": UserRoleTeacher,
+                "student": UserRoleStudent,
+                "administrative": UserRoleAdministrative
+            }
+        },
+        "vehicle": {
+            "plate": {
+                "number": VehiclePlateNumber,
+                "captureDate": VehiclePlateCapturedate
+            },
+            "owoner": {
+                "teacher": VehicleOwonerTeacher,
+                "student": VehicleOwonerStudent,
+                "administrative": VehicleOwonerAdministrative,
+                "visitor": VehicleOwonerVisitor
+            }
+        },
+        "status": {
+            "notUpdated": StatusNotupdated,
+            "updated": StatusUpdated
+        },
+        "notes": Notes
     }
 
-    userUpdated = None
+    recordUpdated = None
 
-    for index, user in enumerate(record):
-        if user["Username"] == username:
-            userUpdated = updatedUser
-            record[index] = updatedUser
+    for index, idRecord in enumerate(record):
+        if idRecord["id_record"] == id_record:
+            recordUpdated = updatedRecord
+            record[index] = updatedRecord
             
-    if userUpdated is not None:
-        return "User Updated", 200
+    if recordUpdated is not None:
+        return "Record Updated", 200
     else: 
-        return "User not found", 404
+        return "Record not found", 404
 
 if __name__ == "__main__":
     app.run(debug=True)
