@@ -123,7 +123,6 @@ def addRecord():
         "notes": Notes
 
     }
-
     # uri = "https://parcial-flask.herokuapp.com/users"
     # response = requests.post(uri, json=newUser)
     record.append(newRecord)
