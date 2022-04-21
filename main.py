@@ -130,17 +130,17 @@ def addRecord():
     return jsonify(newRecord), 200
 
 
-@app.route('/users/<username>', methods=['DELETE'])
-def deleteUser(username):
-    userFound = None
-    for index, user in enumerate(record):
-        if user["Username"] == username:
-            userFound = user
+@app.route('/record/<id_record>', methods=['DELETE'])
+def deleteUser(id_record):
+    recordFound = None
+    for index, idRecord in enumerate(record):
+        if idRecord["id_record"] == id_record:
+            recordFound = idRecord
             record.pop(index)
-    if userFound is not None:
-        return "User deleted", 200
+    if recordFound is not None:
+        return "Record deleted", 200
     else: 
-        return "User not found", 404
+        return "Record not found", 404
 
 @app.route('/users/<username>', methods=['PUT'])
 def updateUser(username):
